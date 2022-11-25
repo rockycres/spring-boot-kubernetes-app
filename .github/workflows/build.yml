@@ -18,6 +18,9 @@ jobs:
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./springf-boot-kubernetes-app
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
@@ -35,4 +38,11 @@ jobs:
     
       # build with maven
       - name: build with maven
-        run: mvn -B package --file pom.xml
+        run: ./mvnw verify
+
+      - if: ${{ github.ref == 'refs/heads/main' }}
+        name: Build and Publish Docker Image
+        run:
+          ./mvnw clean package jib:dockerBuild -DskipTests
+          docker login -u ${{ secrets.DOCKER_USERNAME }} -p  ${{ secrets.DOCKER_PASSWORD }}
+          docker push  ${{ secrets.DOCKER_USERNAME }}/springf-boot-kubernetes-app
