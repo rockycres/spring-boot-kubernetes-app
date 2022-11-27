@@ -101,7 +101,8 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
                 <configuration>
                     <image>
-                        <name>springf-boot-kubernetes-app</name>
+                        <name>{dockerImageName}</name>
+                        <pullPolicy>IF_NOT_PRESENT</pullPolicy>
                     </image>
                     <excludes>
                         <exclude>
@@ -124,7 +125,7 @@
                         <image>springf-boot-kubernetes-app</image>
                         <tags>
                             <tag>latest</tag>
-                            <tag>0.01</tag>
+                            <tag>{project.version}}</tag>
                         </tags>
                     </to>
 
