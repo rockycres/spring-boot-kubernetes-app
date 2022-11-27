@@ -10,7 +10,7 @@
     </parent>
     <groupId>com.example</groupId>
     <artifactId>springf-boot-kubernetes-app</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0</version>
     <name>springf-boot-kubernetes-app</name>
     <description>spring-boot-kubernetes-app</description>
     <properties>
@@ -129,7 +129,7 @@
                         <image>springf-boot-kubernetes-app</image>
                         <tags>
                             <tag>latest</tag>
-                            <tag>{project.version}</tag>
+                            <tag>1.0</tag>
                         </tags>
                     </to>
 
