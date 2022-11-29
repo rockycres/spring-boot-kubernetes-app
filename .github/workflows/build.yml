@@ -39,7 +39,7 @@ jobs:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: ./bookmarker-ui-nextjs
+        working-directory: ./bookmarker-ui-next-js
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
@@ -49,7 +49,7 @@ jobs:
         with:
           node-version: 16
           cache: 'yarn'
-          cache-dependency-path: bookmarker-ui-nextjs/yarn.lock
+          cache-dependency-path: bookmarker-ui-next-js/yarn.lock
       - name: Install dependencies
         run: yarn
 
