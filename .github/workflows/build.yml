@@ -48,8 +48,8 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: 16
-          cache: 'yarn'
-          cache-dependency-path: bookmarker-ui-next-js/yarn.lock
+        ##  cache: 'yarn'
+         ## cache-dependency-path: bookmarker-ui-next-js/yarn.lock
       - name: Install dependencies
         run: yarn
 
