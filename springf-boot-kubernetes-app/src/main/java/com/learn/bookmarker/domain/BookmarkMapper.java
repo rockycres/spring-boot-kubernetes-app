@@ -7,11 +7,9 @@ public class BookmarkMapper {
 
 
     public  BookmarkDTO toDTO(Bookmark bookmark){
-        BookmarkDTO dto = new BookmarkDTO();
-        dto.setId(bookmark.getId());
-        dto.setUrl(bookmark.getUrl());
-        dto.setTitle(bookmark.getTitle());
-        dto.setCreatedAt(bookmark.getCreatedAt());
+        BookmarkDTO dto = new BookmarkDTO(bookmark.getId(),
+        bookmark.getTitle(), bookmark.getUrl(),
+        bookmark.getCreatedAt());
         return dto;
     }
 
