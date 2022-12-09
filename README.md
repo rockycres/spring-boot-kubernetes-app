@@ -116,6 +116,42 @@ npm run build
 .\mvnw clean spring-boot:run
 
 
-kubectl run bookmarker-api --image=sekarsa/bookmarker-api --port=8080
+kubectl run springf-boot-kubernetes-app --image=rockycres/springf-boot-kubernetes-app --port=8080
+
+kubectl run springf-boot-kubernetes-app --image=rockycres/springf-boot-kubernetes-app --port=8080 --dry-run=client -o yaml > pod.yaml
+
+kubectl get events --sort-by=.metadata.creationTimestamp
+
+kubectl get pods
+
+kubectl get all
+
+kubectl describe pods springf-boot-kubernetes-app
+
+kubectl delete pods springf-boot-kubernetes-app
+
+kubectl logs springf-boot-kubernetes-app -f
+
+kubectl exec -it springf-boot-kubernetes-app -- /bin/sh
+
+curl http://localhost:8080/api/bookmarks
 
 
+
+kubectl apply -f .\k8s\pod.yaml       
+kubectl delete  -f .\k8s\pod.yaml       
+
+kubectl delete deployments  springf-boot-kubernetes-app
+
+kubectl scale deployment springf-boot-kubernetes-app --replicas=5 
+
+kubectl rollout history deployment springf-boot-kubernetes-app   
+
+
+kubectl create configmap db-config --from-literal=db_host=postgres  --from-literal=db_password=postgres
+
+kubectl delete configmap db-config 
+
+kubectl create configmap db-config --from-literal=db_host=postgres  --from-literal=db_password=postgres --dry-run=client -o yaml > config.yaml
+
+kubectl create secret generic bookmarker=secrets --from-literal=postgres_username=postgres  --dry-run=client -o yaml > secrets.yaml
