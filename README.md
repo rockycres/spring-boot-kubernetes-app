@@ -114,3 +114,8 @@ npm start
 npm run build
 
 .\mvnw clean spring-boot:run
+
+
+kubectl run bookmarker-api --image=sekarsa/bookmarker-api --port=8080
+
+
